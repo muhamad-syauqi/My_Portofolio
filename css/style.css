@@ -68,3 +68,104 @@ nav a:focus-visible{outline:2px solid var(--y)}
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.rv.show{opacity:1;transform:none}
 @media(max-width:560px){nav a span{display:none}nav a.on span{display:inline}nav a{padding:12px 14px}.tools{gap:22px 4px}.tools svg{width:52px;height:52px}main{padding:0 6%}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero>*,.rv{opacity:1;transform:none}}
+#tl {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.tool-card {
+    position: relative;
+    min-height: 125px;
+    padding: 22px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition: all 0.35s ease;
+    overflow: hidden;
+}
+
+.tool-card::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: rgba(212, 175, 55, 0.12);
+    filter: blur(35px);
+    border-radius: 50%;
+    opacity: 0;
+    transition: 0.35s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(212, 175, 55, 0.08);
+}
+
+.tool-card:hover::before {
+    opacity: 1;
+}
+
+.tool-icon {
+    position: relative;
+    z-index: 2;
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 46px;
+    transition: 0.35s ease;
+}
+
+.tool-card:hover .tool-icon {
+    transform: scale(1.12);
+}
+
+.tool-card span {
+    position: relative;
+    z-index: 2;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 900px) {
+    #tl {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    #tl {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .tool-card {
+        min-height: 110px;
+    }
+
+    .tool-icon {
+        font-size: 40px;
+    }
+}

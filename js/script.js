@@ -4,19 +4,59 @@ var pg=document.getElementById('pg'),h='';
 bg.forEach(function(b,i){h+='<a class="pc" href="#"><div class="pimg" style="background:'+b+'"><div class="logo"><em>EP</em><span>Example<br>Project</span></div><span class="arr">↗</span><span class="spk">✦</span></div><strong>Project-Title '+(i+1)+'</strong><small>Lorem ipsum dolor, sit amet consectetur.</small></a>'});
 pg.innerHTML=h;
 
-// Tool icons
-var T=[
-['HTML','<svg viewBox="0 0 64 64"><path d="M8 4h48l-4 46-20 10-20-10z" fill="#e8501f"/><path d="M32 8v48l16-8 3.500-40z" fill="#f16529"/><text x="32" y="40" font-size="26" font-weight="800" text-anchor="middle" fill="#fff" font-family="sans-serif">5</text></svg>'],
-['CSS','<svg viewBox="0 0 64 64"><path d="M8 4h48l-4 46-20 10-20-10z" fill="#1572b6"/><path d="M32 8v48l16-8 3.500-40z" fill="#33a9dc"/><text x="32" y="40" font-size="26" font-weight="800" text-anchor="middle" fill="#fff" font-family="sans-serif">3</text></svg>'],
-['JavaScript','<svg viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" fill="#f7df1e"/><text x="56" y="56" font-size="30" font-weight="800" text-anchor="end" fill="#111" font-family="sans-serif">JS</text></svg>'],
-['React','<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#10141c"/><g fill="none" stroke="#61dafb" stroke-width="2.500"><ellipse cx="32" cy="32" rx="20" ry="8"/><ellipse cx="32" cy="32" rx="20" ry="8" transform="rotate(60 32 32)"/><ellipse cx="32" cy="32" rx="20" ry="8" transform="rotate(120 32 32)"/></g><circle cx="32" cy="32" r="3.500" fill="#61dafb"/></svg>'],
-['Node.js','<svg viewBox="0 0 64 64"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="#539e43" stroke-width="4"/><text x="32" y="40" font-size="20" font-weight="800" text-anchor="middle" fill="#539e43" font-family="sans-serif">JS</text></svg>'],
-['MongoDB','<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#2b2f36"/><g fill="#d7dbe0"><ellipse cx="30" cy="18" rx="16" ry="6"/><path d="M14 22c0 4 7 7 16 7s16-3 16-7v8c0 4-7 7-16 7s-16-3-16-7zM14 36c0 4 7 7 16 7s16-3 16-7v8c0 4-7 7-16 7s-16-3-16-7z"/></g><path d="M50 30c4 6 2 16-4 22-2-8-2-16 4-22z" fill="#3fa037"/></svg>'],
-['Git','<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#f1502f"/><path d="M32 12 52 32 32 52 12 32z" fill="#fff"/><circle cx="26" cy="26" r="4" fill="#f1502f"/><circle cx="36" cy="30" r="4" fill="#f1502f"/><circle cx="31" cy="42" r="4" fill="#f1502f"/><path d="M26 26l10 4M31 42l5-12M26 26l5 16" stroke="#f1502f" stroke-width="2.500"/></svg>'],
-['GitHub','<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#fff"/><path d="M32 12a20 20 0 0 0-6.300 39c1 .2 1.400-.4 1.400-1v-3.500c-5.600 1.200-6.800-2.700-6.800-2.700-.9-2.300-2.200-2.900-2.200-2.900-1.800-1.200.1-1.200.1-1.200 2 .1 3.100 2.100 3.100 2.100 1.800 3.100 4.700 2.200 5.800 1.700.2-1.300.7-2.200 1.300-2.700-4.500-.5-9.200-2.200-9.200-9.900 0-2.200.8-4 2.100-5.400-.2-.5-.9-2.600.2-5.400 0 0 1.700-.5 5.500 2a19 19 0 0 1 10 0c3.800-2.500 5.500-2 5.500-2 1.100 2.800.4 4.900.2 5.400 1.300 1.400 2.100 3.200 2.100 5.400 0 7.700-4.700 9.400-9.200 9.900.7.600 1.400 1.800 1.400 3.700V50c0 .6.4 1.200 1.400 1A20 20 0 0 0 32 12z" fill="#111"/></svg>'],
-['Figma','<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#10141c"/><circle cx="32" cy="32" r="8" fill="#1abcfe"/><path d="M16 16a8 8 0 0 1 8-8h8v16h-8a8 8 0 0 1-8-8z" fill="#f24e1e" transform="translate(4 6)"/><path d="M32 8h8a8 8 0 0 1 0 16h-8z" fill="#ff7262" transform="translate(4 6)"/><path d="M16 32a8 8 0 0 1 8-8h8v16h-8a8 8 0 0 1-8-8z" fill="#a259ff" transform="translate(4 6)"/><path d="M16 48a8 8 0 0 1 8-8h8v8a8 8 0 0 1-16 0z" fill="#0acf83" transform="translate(4 4)"/></svg>'],
-['Express JS','<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#f7c600"/><text x="32" y="25" font-size="9" font-weight="800" text-anchor="middle" fill="#111" font-family="sans-serif">EXPRESS</text><text x="32" y="48" font-size="26" font-weight="800" text-anchor="middle" fill="#111" font-family="sans-serif">JS</text></svg>']];
-document.getElementById('tl').innerHTML=T.map(function(t){return '<div>'+t[1]+t[0]+'</div>'}).join('');
+var T = [
+    {
+        name: "HTML5",
+        icon: `<i class="devicon-html5-plain colored"></i>`
+    },
+    {
+        name: "CSS3",
+        icon: `<i class="devicon-css3-plain colored"></i>`
+    },
+    {
+        name: "JavaScript",
+        icon: `<i class="devicon-javascript-plain colored"></i>`
+    },
+    {
+        name: "PHP",
+        icon: `<i class="devicon-php-plain colored"></i>`
+    },
+    {
+        name: "Laravel",
+        icon: `<i class="devicon-laravel-plain colored"></i>`
+    },
+    {
+        name: "Bootstrap",
+        icon: `<i class="devicon-bootstrap-plain colored"></i>`
+    },
+    {
+        name: "MySQL",
+        icon: `<i class="devicon-mysql-plain colored"></i>`
+    },
+    {
+        name: "Git",
+        icon: `<i class="devicon-git-plain colored"></i>`
+    },
+    {
+        name: "GitHub",
+        icon: `<i class="devicon-github-original"></i>`
+    },
+    {
+        name: "Figma",
+        icon: `<i class="devicon-figma-plain colored"></i>`
+    }
+];
+
+document.getElementById('tl').innerHTML = T.map(function(tool) {
+    return `
+        <div class="tool-card">
+            <div class="tool-icon">
+                ${tool.icon}
+            </div>
+            <span>${tool.name}</span>
+        </div>
+    `;
+}).join('');
 
 // Contact form (opens email app)
 document.getElementById('f').addEventListener('submit',function(ev){
